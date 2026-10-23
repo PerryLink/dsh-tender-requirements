@@ -28,7 +28,9 @@ dsh --profile <name> --dump-config | grep 'dsh-tender-requirements'
 - What deadline, deposit, validity period and ceiling does the front appendix state?
 - What must a bid contain, in what order?
 - How many originals and duplicates are required?
-- Which items were **not** retrieved, so they can be confirmed by hand?
+- Which rejection clauses can be quoted verbatim, which need a human look, and which
+  could not be extracted at all?
+- Which of the ten coverage topics were not found, so they can be confirmed by hand?
 
 ## Standards it follows
 
@@ -46,6 +48,15 @@ No clause is quoted as authority for a check, because this package extracts rath
 | Platforms | all (pure ESM; no native code, no network, no model call) |
 
 ## What it does
+
+**Three queues, not one list.** Every clause lands in A 交付 (quoted verbatim, in a
+binding section, no hedge), B 待确认 (quoted but structurally weak), or C 必须处理
+(could not be quoted, or is hedged). While C is non-empty the pack reports
+`deliverable: false` and the report says the check is 未完成体检 — a merged list is
+what lets a tool say "no findings" when it only found nothing it could quote.
+
+Rejection clauses are sorted into families (`refuse` / `invalid` / `reject` /
+`disqualify` / `deviation` / `postAward`) rather than one keyword table.
 
 Recognition is per item, not one keyword table. The spec's probe showed why: on constructed data a result-only word list hit 12/24 with two false positives, and a trigger-only list (不得/应当/必须) hit 15/24 of which over half were the buyer's own obligations.
 

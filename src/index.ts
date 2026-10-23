@@ -6,6 +6,9 @@ import { Config } from './config.ts'
 import type { Config as ConfigShape } from './config.ts'
 import { extract } from './model.ts'
 import { renderMarkdown } from './report.ts'
+import { buildPack } from './requirements.ts'
+import { renderPack } from './pack-report.ts'
+import { VERSION, RULES_VERSION } from './version.ts'
 
 export const name = 'dsh-tender-requirements'
 export const inject = ['tools']
@@ -30,6 +33,11 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
         '只解析主文件，不解析澄清与补遗。',
       parameters: {
         file: { type: 'string', description: '招标文件 .docx 的绝对路径。' },
+        mode: {
+          type: 'string',
+          enum: ['requirements', 'extract'],
+          description: 'requirements（默认）出 RequirementsPack 与三队列；extract 只出前附表与组成清单。',
+        },
       },
       output: {
         schema: {
@@ -54,8 +62,19 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
                 },
               },
             },
+            deliverable: { type: 'boolean' },
+            queues: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                a: { type: 'integer' },
+                b: { type: 'integer' },
+                c: { type: 'integer' },
+              },
+            },
             markdown: { type: 'string' },
             resultJson: { type: 'string' },
+            requirementsPack: { type: 'string' },
           },
         },
         render: (_args, value) => [{ type: 'text', text: (value as { markdown: string }).markdown }],
@@ -69,8 +88,31 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
         const buffer = await readFile(path)
         exec.signal.throwIfAborted()
         const extraction = extract(buffer, path)
-        const markdown = renderMarkdown(extraction, path)
         const found = extraction.items.filter((item) => item.value !== '')
+
+        if (args.mode === 'extract') {
+          return {
+            plugin: name,
+            target: path,
+            foundCount: found.length,
+            missingCount: extraction.items.length - found.length,
+            compositionCount: extraction.composition.length,
+            items: found.map((item) => ({ key: item.key, label: item.label, value: item.value, confidence: item.confidence })),
+            deliverable: true,
+            queues: { a: 0, b: 0, c: 0 },
+            markdown: renderMarkdown(extraction, path),
+            resultJson: JSON.stringify(extraction),
+            requirementsPack: '',
+          }
+        }
+
+        const header: Record<string, unknown> = {}
+        for (const item of found) header[item.label] = item.value
+        const pack = buildPack(extraction.paragraphs, header, { path, role: '主文件' }, {
+          plugin: name,
+          version: VERSION,
+          rulesVersion: RULES_VERSION,
+        })
         return {
           plugin: name,
           target: path,
@@ -78,8 +120,11 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
           missingCount: extraction.items.length - found.length,
           compositionCount: extraction.composition.length,
           items: found.map((item) => ({ key: item.key, label: item.label, value: item.value, confidence: item.confidence })),
-          markdown,
-          resultJson: JSON.stringify(extraction),
+          deliverable: pack.deliverable,
+          queues: pack.queues,
+          markdown: renderPack(pack, path),
+          resultJson: JSON.stringify(pack),
+          requirementsPack: JSON.stringify(pack, null, 2),
         }
       },
     }),

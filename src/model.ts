@@ -44,6 +44,8 @@ export interface Extraction {
   composition: string[]
   /** Copy counts, when stated. */
   copies: { original: number | null; duplicate: number | null; raw: string }
+  /** The document's paragraphs, in order; the pack builder needs the text itself. */
+  paragraphs: string[]
   /** Paragraph count and table count, for the coverage statement. */
   coverage: { paragraphs: number; tables: number; sections: string[] }
   warnings: string[]
@@ -168,8 +170,15 @@ export function frontRowsOf(table: TableJson): { key: string; value: string; row
   return rows
 }
 
-/** Lists whose entries start with a numbered or bracketed marker. */
-const LIST_MARKER = /^\s*(?:[（(]?\d+[)）.、]|[（(][一二三四五六七八九十]+[)）]|[一二三四五六七八九十]+[、.])\s*/u
+/**
+ * Lists whose entries start with a numbered or bracketed marker.
+ *
+ * The captured group is the entry's number, so the reader can require the numbering
+ * to run consecutively. Without that, a section heading like `3.7 投标文件的递交`
+ * inside a chapter reads as entry 3 and gets appended to the composition list of
+ * chapter 2.
+ */
+const LIST_MARKER = /^\s*(?:[（(]?(\d+)[)）.、]|[（(]([一二三四五六七八九十]+)[)）]|([一二三四五六七八九十]+)[、.])\s*/u
 
 /**
  * Extract the bid-document composition list from paragraphs.
@@ -180,12 +189,12 @@ const LIST_MARKER = /^\s*(?:[（(]?\d+[)）.、]|[（(][一二三四五六七八
 export function compositionOf(paragraphs: string[]): string[] {
   const entries: string[] = []
   let started = false
+  let expected = 1
   for (const paragraph of paragraphs) {
     const trimmed = paragraph.trim()
     if (!started) {
       if (/投标文件(?:的)?(?:组成|构成|内容)|投标文件应包括|投标文件应由以下/u.test(trimmed)) {
         started = true
-        continue
       }
       continue
     }
@@ -193,7 +202,19 @@ export function compositionOf(paragraphs: string[]): string[] {
       if (entries.length >= 3) break
       continue
     }
-    if (LIST_MARKER.test(trimmed)) {
+    const marker = LIST_MARKER.exec(trimmed)
+    if (marker !== null) {
+      const arabic = marker[1]
+      // Require consecutive numbering: a jump means this is a new section, not the
+      // next entry of this list.
+      if (arabic !== undefined && Number.parseInt(arabic, 10) !== expected) {
+        if (entries.length >= 3) break
+        entries.length = 0
+        started = false
+        expected = 1
+        continue
+      }
+      expected++
       entries.push(trimmed.replace(LIST_MARKER, '').trim())
       continue
     }
@@ -201,6 +222,7 @@ export function compositionOf(paragraphs: string[]): string[] {
     if (entries.length >= 3) break
     entries.length = 0
     started = false
+    expected = 1
   }
   return entries.filter((entry) => entry !== '')
 }
@@ -317,6 +339,7 @@ export function extract(buffer: Buffer, filename: string): Extraction {
     frontRows,
     composition,
     copies,
+    paragraphs,
     coverage: { paragraphs: paragraphs.length, tables: tables.length, sections },
     warnings,
   }

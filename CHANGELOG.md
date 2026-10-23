@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.2.0
+
+Adds the `RequirementsPack` and the three queues — the producer half of the tender
+spec. `mode=extract` keeps the 0.1.0 behaviour.
+
+- **Three queues, not one list.** A 交付 (verified verbatim, in a binding section,
+  no hedge), B 待确认 (quoted but structurally weak), C 必须处理 (not quotable, or
+  hedged, or referenced elsewhere). A single merged list is what lets a tool report
+  "no findings" when it actually found nothing it could quote.
+- **Queue C is a gate.** While it is non-empty the pack reports `deliverable: false`
+  and the report says the check is 未完成体检 — it must not be presented as a
+  delivered list.
+- **Coverage net over ten topics**, each reported as hit or explicitly
+  "not found — this does not mean the document omits it".
+- Clause families (`refuse` / `invalid` / `reject` / `disqualify` / `deviation` /
+  `postAward`) rather than one keyword table, following the spec's probe where a
+  result-word-only list hit 12/24 and a trigger-word-only list hit 15/24 with over
+  half being the buyer's own obligations.
+- Fixes the composition reader: numbering must now run consecutively, so a section
+  heading like `3.7 投标文件的递交` is no longer appended as entry 7 of the previous
+  chapter's list.
+- Clause titles are anchored on the clause word, not on the first comma: the old
+  rule titled 「原则上，投标有效期不足的按无效投标处理」 as 「原则上」.
+- 27 tests.
+
+
 ## 0.1.0
 
 First release. Extraction, not adjudication: every item is reported whether or not

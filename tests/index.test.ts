@@ -10,6 +10,8 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { compositionOf, extract, looksLikeValue, readCopies, readCount } from '../src/model.ts'
+import { buildPack, sentencesOf } from '../src/requirements.ts'
+import { renderPack } from '../src/pack-report.ts'
 import { renderMarkdown } from '../src/report.ts'
 
 const HERE = import.meta.dirname
@@ -112,6 +114,79 @@ describe('report', () => {
     const markdown = renderMarkdown(extraction, 'tender-sample.docx')
     expect(markdown).toContain('未检索到（请人工确认）')
     expect(markdown).toContain('不等于')
+    expect(markdown).toContain('只解析了主文件')
+  })
+})
+
+describe('requirements pack', () => {
+  const extraction = extract(fixture('tender-sample.docx'), 'tender-sample.docx')
+  const header = Object.fromEntries(
+    extraction.items.filter((item) => item.value !== '').map((item) => [item.label, item.value]),
+  )
+  const pack = buildPack(extraction.paragraphs, header, { path: 'tender-sample.docx', role: '主文件' }, {
+    plugin: 'dsh-tender-requirements',
+    version: '0.2.0',
+    rulesVersion: '2026.1',
+  })
+
+  it('splits a paragraph into sentences without losing the punctuation', () => {
+    const parts = sentencesOf('第一句。第二句；第三句。')
+    expect(parts).toEqual(['第一句。', '第二句；', '第三句。'])
+  })
+
+  it('sorts clauses into the three queues', () => {
+    expect(pack.queues.a).toBeGreaterThan(0)
+    expect(pack.queues.b).toBeGreaterThan(0)
+    expect(pack.queues.c).toBeGreaterThan(0)
+    expect(pack.queues.a + pack.queues.b + pack.queues.c).toBe(pack.items.length)
+  })
+
+  it('puts a hedged clause in queue C, not A', () => {
+    // 「原则上，…按无效投标处理」is not an absolute statement; treating it as a
+    // deliverable requirement would tell the reader to rely on something the
+    // document itself qualifies.
+    const hedged = pack.items.find((item) => item.flags.includes('hedged'))
+    expect(hedged).toBeDefined()
+    expect(hedged?.tier).toBe('C')
+  })
+
+  it('marks the pack undeliverable while queue C is non-empty', () => {
+    expect(pack.queues.c).toBeGreaterThan(0)
+    expect(pack.deliverable).toBe(false)
+  })
+
+  it('titles a clause by its clause word, not by whatever precedes the first comma', () => {
+    const hedged = pack.items.find((item) => item.flags.includes('hedged'))
+    expect(hedged?.title).not.toBe('原则上')
+    expect(hedged?.title).toContain('无效')
+  })
+
+  it('classifies every clause into a family and records why', () => {
+    for (const item of pack.items.filter((entry) => entry.category === 'reject-clause')) {
+      expect(item.family, `${item.id} 没有 family`).toBeTruthy()
+      expect(item.reasons.length, `${item.id} 没有理由`).toBeGreaterThan(0)
+      expect(item.verification.matchMode).toBe('exact')
+    }
+  })
+
+  it('reports each coverage topic as hit or explicitly not found', () => {
+    expect(pack.coverage.topics.length).toBeGreaterThanOrEqual(8)
+    for (const topic of pack.coverage.topics) {
+      if (!topic.hit) expect(topic.note).toContain('不表示文件里没有')
+    }
+    expect(pack.coverage.topics.some((topic) => topic.hit)).toBe(true)
+  })
+
+  it('renders queue C before the deliverable queues', () => {
+    const markdown = renderPack(pack, 'tender-sample.docx')
+    expect(markdown).toContain('C 必须处理')
+    expect(markdown).toContain('不得作为正式交付物')
+    expect(markdown.indexOf('## C 必须处理')).toBeLessThan(markdown.indexOf('## A 交付'))
+  })
+
+  it('says not-found is not absent, in the coverage section', () => {
+    const markdown = renderPack(pack, 'tender-sample.docx')
+    expect(markdown).toContain('未命中不等于文件没写')
     expect(markdown).toContain('只解析了主文件')
   })
 })

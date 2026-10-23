@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-tender-requirements-hero.png",
+    "kind": "hero",
+    "alt": "dsh-tender-requirements terminal output",
+    "caption": "Real dsh-tender-requirements checker output."
+  },
+  {
+    "path": "docs/assets/dsh-tender-requirements-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-tender-requirements terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]

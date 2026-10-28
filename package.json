@@ -1,6 +1,6 @@
 {
   "name": "dsh-tender-requirements",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "从招标文件抽取关键信息：前附表的时间与保证金、投标文件组成与份数，并逐项报告是否检索到。",
   "type": "module",
   "main": "lib/index.mjs",
@@ -91,6 +91,6 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "dsh-table-ingest": "^0.2.0"
+    "dsh-table-ingest": "^0.2.1"
   }
 }

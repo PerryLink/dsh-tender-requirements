@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+- Sync the `RequirementsPack` generator version with the package version: 0.2.1 packs still wrote
+  `generator.version: "0.2.0"`. `tests/version-sync.test.ts` now pins `src/version.ts` to
+  `package.json`, so the next release cannot drift again. No rule or report change.
+
 ## 0.2.1
 
 - Require `dsh-table-ingest` `^0.2.1`, which adds the ZIP entry-count, per-entry and cumulative output budgets requested in the dshopen review. No rule or report change.

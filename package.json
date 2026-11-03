@@ -26,7 +26,10 @@
     "rules",
     "CHANGELOG.md",
     "SECURITY.md",
-    "docs/assets/*"
+    "docs/assets/*",
+    "samples",
+    "TROUBLESHOOTING.md",
+    "screenshots.json"
   ],
   "scripts": {
     "build": "tsdown",
@@ -43,6 +46,18 @@
     "manifestVersion": 1,
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "demo": {
+      "sample": "samples/quickstart/input/tender-sample.docx",
+      "prompt": "用自带样例抽取招标文件要点，告诉我检索到几项、缺几项、组成清单有多少条。",
+      "expect": "samples/quickstart/expected/result.json",
+      "screenshot": "docs/assets/quickstart.png",
+      "reads": [
+        "招标文件 .docx"
+      ],
+      "writes": [],
+      "network": false,
+      "external": []
     }
   },
   "keywords": [

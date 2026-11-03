@@ -1,0 +1,12 @@
+{
+  "tool": "tender_requirements",
+  "foundCount": 6,
+  "missingCount": 3,
+  "compositionCount": 6,
+  "deliverable": false,
+  "queues": {
+    "a": 8,
+    "b": 2,
+    "c": 1
+  }
+}

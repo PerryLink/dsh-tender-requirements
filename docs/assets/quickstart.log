@@ -1,0 +1,3 @@
+$ node samples/quickstart/run.mjs
+tender_requirements: 6 found, 3 missing, 6 composition item(s) — deliverable false
+queues: a=8 b=2 c=1

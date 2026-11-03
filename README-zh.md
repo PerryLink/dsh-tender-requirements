@@ -1,6 +1,6 @@
 # dsh-tender-requirements — 招标文件要点抽取
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check

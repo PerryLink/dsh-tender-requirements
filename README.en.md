@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-flow-dark.svg">
-  <img src="docs/assets/dsh-tender-requirements-flow-light.svg" width="100%" alt="dsh-tender-requirements data flow: tender.docx → ingestToTable (two-column front appendix) → nine extracted items and copy counts + compositionOf list → RequirementsPack A/B/C queues; the COV-01…COV-10 coverage net sits underneath">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-hero-en-dark.webp">
+  <img src="docs/assets/dsh-tender-requirements-hero-en-light.webp" width="100%" alt="dsh-tender-requirements banner: the plugin name and two value lines on the left; on the right the synthetic sample's two-column front appendix (deadline, deposit, validity, ceiling, sealing, copies) and the A 8 / B 2 / C 1 queues, where one clause hedged with a Chinese hedge word keeps deliverable=false.">
 </picture>
 
 # dsh-tender-requirements
@@ -35,6 +35,11 @@ dsh plugin --profile <name> add dsh-tender-requirements
 ## What it is
 
 `dsh-tender-requirements` is a read-only local extractor, not a reviewer. It opens the `.docx` you give it, pairs the rows of a two-column front appendix, then finds the bid-document composition list and copy counts in the body, and finally emits a report with provenance, confidence and a reason for every item. Items that were not found are printed too, and they say "not retrieved" rather than "the document does not say". No model call, no network request and no second copy of the data.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-tender-requirements-flow-v5-light.svg" width="100%" alt="dsh-tender-requirements structure: on the left a .docx read through tables and paragraphs; top centre the nine-item grid (6 retrieved / 3 not retrieved), the six-entry composition list and copies 1 original / 4 duplicates; bottom centre six wording families through two evidence gates (verbatim and unhedged, then binding section), with front-appendix keys taking a dashed bypass into A; on the right the report order C → A → B: C must handle 1 (hedged by a Chinese modifier), A delivered 8, B needs review 2, so C non-empty keeps deliverable=false; the COV-01…COV-10 coverage ribbon reports 6 hit and 4 miss.">
+</picture>
 
 ## Three-step setup
 
@@ -305,7 +310,7 @@ Directory layout:
 | `tests/` | vitest suites and the `.docx` fixture |
 | `scripts/` | Mechanical gates and the asset generator |
 
-Images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) into `docs/assets/dsh-tender-requirements-flow-{light,dark}.svg`; re-run it with `python scripts/gen-readme-assets.py`.
+Images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py): Python + Pillow for the light/dark hero WebP files and hand-written light/dark structure SVGs (names start with `dsh-tender-requirements-`). Re-run with `python scripts/gen-readme-assets.py`.
 
 Shared-code sync: `src/shared/` is copied from the family shared kit; inside the family workspace it can be refreshed with `node ../scripts/sync-shared.mjs dsh-tender-requirements` (that script does not exist in a standalone clone).
 

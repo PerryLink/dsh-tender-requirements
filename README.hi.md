@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-flow-dark.svg">
-  <img src="docs/assets/dsh-tender-requirements-flow-light.svg" width="100%" alt="dsh-tender-requirements डेटा प्रवाह: tender.docx → ingestToTable (दो-कॉलम अग्र-परिशिष्ट) → नौ मदें और प्रतियों की गिनती + compositionOf सूची → RequirementsPack की A/B/C कतारें; नीचे COV-01…COV-10 कवरेज नेट">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-hero-en-dark.webp">
+  <img src="docs/assets/dsh-tender-requirements-hero-en-light.webp" width="100%" alt="dsh-tender-requirements बैनर: बाईं ओर प्लगइन का नाम और दो मूल्य-पंक्तियाँ; दाईं ओर संश्लेषित नमूने का दो-कॉलम अग्र-परिशिष्ट (समय-सीमा, जमानत, वैधता, अधिकतम मूल्य, सीलिंग, प्रतियाँ) और A 8 / B 2 / C 1 कतारें, जहाँ «原则上» वाला एक खंड deliverable=false रखता है।">
 </picture>
 
 # dsh-tender-requirements
@@ -35,6 +35,11 @@ dsh plugin --profile <name> add dsh-tender-requirements
 ## यह क्या है
 
 `dsh-tender-requirements` एक केवल-पढ़ने वाला स्थानीय एक्सट्रैक्टर है, समीक्षक नहीं। यह आपके दिए `.docx` को खोलता है, दो-कॉलम अग्र-परिशिष्ट की पंक्तियों को जोड़ता है, फिर मुख्य भाग में निविदा-दस्तावेज़ की संरचना सूची और प्रतियों की संख्या खोजता है, और अंत में हर मद के लिए स्रोत, विश्वास और कारण के साथ रिपोर्ट देता है। न मिली मदें भी छपती हैं, और वे «नहीं मिला» कहती हैं, «दस्तावेज़ में नहीं है» नहीं। कोई मॉडल कॉल नहीं, कोई नेटवर्क अनुरोध नहीं, डेटा की दूसरी प्रति नहीं।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-tender-requirements-flow-v5-light.svg" width="100%" alt="dsh-tender-requirements संरचना: बाईं ओर .docx को तालिकाओं और पैराग्राफ़ से पढ़ा जाता है; ऊपर-मध्य में नौ-मद ग्रिड (6 प्राप्त / 3 नहीं मिले), छह-प्रविष्टि संयोजन सूची और प्रतियाँ 1 मूल / 4 प्रतियाँ; नीचे-मध्य में छह शब्दावली परिवार दो साक्ष्य-द्वारों से (शब्दशः और बिना हेज, फिर बाध्यकारी अनुभाग), अग्र-परिशिष्ट कुंजियाँ बिंदुकित बाईपास से A में; दाईं ओर रिपोर्ट क्रम C → A → B: C में 1 (原则上 सहित), A में 8, B में 2, और C खाली न होने से deliverable=false; नीचे COV-01…COV-10 कवरेज नेट, 6 हिट और 4 मिस।">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -305,7 +310,7 @@ node samples/quickstart/run.mjs --check   # build के बाद
 | `tests/` | vitest सूट और `.docx` fixture |
 | `scripts/` | यांत्रिक गेट और चित्र जनरेटर |
 
-चित्र [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) से क्रमानुसार बनते हैं और `docs/assets/dsh-tender-requirements-flow-{light,dark}.svg` में जाते हैं; दोबारा चलाने के लिए `python scripts/gen-readme-assets.py`.
+चित्र [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से क्रमानुसार बनते हैं: Python + Pillow से हल्के/गहरे hero WebP और हस्तलिखित हल्के/गहरे संरचना SVG, फ़ाइल नाम `dsh-tender-requirements-` से शुरू होते हैं; दोबारा चलाने के लिए `python scripts/gen-readme-assets.py`।
 
 साझा कोड तालमेल: `src/shared/` परिवार के साझा किट से कॉपी होता है; परिवार कार्यक्षेत्र में `node ../scripts/sync-shared.mjs dsh-tender-requirements` से ताज़ा किया जा सकता है (स्वतंत्र क्लोन में वह स्क्रिप्ट नहीं है)।
 

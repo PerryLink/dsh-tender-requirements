@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-flow-dark.svg">
-  <img src="docs/assets/dsh-tender-requirements-flow-light.svg" width="100%" alt="dsh-tender-requirements 数据流：tender.docx → ingestToTable（两列前附表）→ 9 项要点与份数 + compositionOf 组成清单 → RequirementsPack 的 A/B/C 三队列；下方为 COV-01…COV-10 覆盖网">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-tender-requirements-hero-zh-light.webp" width="100%" alt="dsh-tender-requirements 横幅：左侧是插件名与两句价值说明；右侧是合成样例的两列前附表（投标截止、保证金、有效期、最高限价、密封、份数）与 A 交付 8 / B 待确认 2 / C 必须处理 1 三队列，C 中一条含「原则上」的条款使 deliverable=false。">
 </picture>
 
 # dsh-tender-requirements
@@ -35,6 +35,11 @@ dsh plugin --profile <name> add dsh-tender-requirements
 ## 它是什么
 
 `dsh-tender-requirements` 是一个只读的本地抽取器，不是审阅器。它打开你给的 `.docx`，把前附表中的两列表格逐行配对，再从正文里找投标文件组成清单与份数，最后输出一份带出处、置信度和理由的报告。找不到的项也会打印，并明确写「未检索到」而不是「文件里没有」。整个过程不调用模型、不联网、不写第二份数据。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-tender-requirements-flow-v5-light.svg" width="100%" alt="dsh-tender-requirements 结构图：左侧 .docx 经表格与段落两条读取面；上中为九项要点网格（6 检索到 / 3 未检索到）、组成清单 6 条与份数 1 正 4 副；下中为六族措辞经两道证据闸（逐字且无修饰、约束章节），前附表键值经虚线旁路直接入 A；右侧按报告顺序 C → A → B 排列三队列：C 必须处理 1（含「原则上」）、A 交付 8、B 待确认 2，C 非空故 deliverable=false；底部 COV-01…COV-10 覆盖网，6 命中 4 未命中。">
+</picture>
 
 ## 三步上手
 
@@ -313,7 +318,7 @@ node samples/quickstart/run.mjs --check   # 先 build
 | `tests/` | vitest 测试与 `.docx` fixture |
 | `scripts/` | 机械门禁与配图脚本 |
 
-配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow），输出 `docs/assets/dsh-tender-requirements-flow-{light,dark}.svg`；可重复执行：`python scripts/gen-readme-assets.py`。
+配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成：Python + Pillow 生成深浅双版 hero WebP，手写深浅双版结构 SVG，文件名以 `dsh-tender-requirements-` 开头；可重复执行：`python scripts/gen-readme-assets.py`。
 
 共享代码同步：`src/shared/` 是从家族共享工具包复制进来的；在家族工作区中可用 `node ../scripts/sync-shared.mjs dsh-tender-requirements` 重新同步（独立克隆里没有该脚本）。
 

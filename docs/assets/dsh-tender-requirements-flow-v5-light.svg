@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-labelledby="figTitle figDesc">
+<title id="figTitle">dsh-tender-requirements structure: two readers, a nine-item grid and six wording families, two evidence gates, and the A/B/C queue scoreboard above a ten-cell coverage net</title>
+<desc id="figDesc">A .docx is read twice: every table through allTablesOf and the paragraphs through ingestDocx. The table channel keeps exactly two-column tables and yields six front-appendix key rows for the nine-item grid (6 of 9 retrieved) plus the composition list and copy counts. The paragraph channel splits sentences into six rejection families. A clause passes gate one only when it is verbatim and unhedged; gate two decides A when it sits in a binding section, otherwise B. Hedged or unlocated clauses go to C. Front-appendix keys bypass both gates into A. The run gives A 8, B 2, C 1; because C is non-empty deliverable is false. The COV-01 to COV-10 ribbon reports 6 hit and 4 miss, and a miss means not retrieved, never absent.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.25" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient>
+<pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="#cfc8e2"/></pattern>
+<filter id="soft" x="-30%" y="-30%" width="170%" height="185%"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#2b2440" flood-opacity="0.12"/></filter>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4B67B4"/></marker>
+<marker id="arrfaint" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8f94a4"/></marker>
+<marker id="arrwarn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b45309"/></marker>
+<marker id="arrok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#15803d"/></marker>
+</defs>
+<rect x="0" y="0" width="1100" height="660" rx="22" fill="url(#bg)"/>
+<rect width="1100" height="660" rx="22" fill="url(#dots)" opacity="0.35"/>
+<text x="38" y="40" fill="#4B67B4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">STRUCTURE · DSH TENDER REQUIREMENTS</text>
+<text x="38" y="72" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="23" font-weight="700">Two readers, two evidence gates, three queues</text>
+<text x="38" y="96" fill="#4d5261" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="12">A tier is evidence strength, not priority — a non-empty C sets deliverable = false.</text>
+<text x="1062" y="40" fill="#8f94a4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" text-anchor="end">v0.2.4 · tender_requirements</text>
+<line x1="36" y1="112" x2="1064" y2="112" stroke="#e7e4f0" stroke-width="1"/>
+<rect x="36" y="132" width="264" height="82" rx="18" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4" filter="url(#soft)"/>
+<rect x="50" y="147" width="36" height="36" rx="10" fill="#ece7f9"/>
+<text x="68" y="169" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">.docx</text>
+<text x="96" y="157" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="14" font-weight="700">tender .docx</text>
+<rect x="226" y="140" width="66" height="20" rx="10" fill="#ece7f9"/>
+<text x="259" y="154" fill="#4B67B4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="700" text-anchor="middle">read-only</text>
+<text x="96" y="177" fill="#4d5261" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11">tender_requirements</text>
+<text x="50" y="203" fill="#8f94a4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11">samples/quickstart · sample</text>
+<path d="M168 214 L168 224" fill="none" stroke="#8f94a4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrfaint)"/>
+<path d="M100 224 L100 240" fill="none" stroke="#8f94a4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrfaint)"/>
+<path d="M236 224 L236 240" fill="none" stroke="#8f94a4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrfaint)"/>
+<rect x="36" y="244" width="264" height="100" rx="18" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4" filter="url(#soft)"/>
+<text x="50" y="266" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">table reader</text>
+<text x="50" y="286" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="12" font-weight="700">allTablesOf</text>
+<text x="50" y="306" fill="#4d5261" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11">every table · exactly 2 columns</text>
+<text x="50" y="324" fill="#b45309" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11">0 tables → TenderError</text>
+<rect x="246" y="262" width="40" height="58" rx="6" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1"/>
+<line x1="246" y1="276" x2="286" y2="276" stroke="#e7e4f0" stroke-width="1"/>
+<line x1="262" y1="262" x2="262" y2="320" stroke="#e7e4f0" stroke-width="1"/>
+<line x1="246" y1="290" x2="286" y2="290" stroke="#e7e4f0" stroke-width="0.8"/>
+<line x1="246" y1="304" x2="286" y2="304" stroke="#e7e4f0" stroke-width="0.8"/>
+<rect x="248" y="264" width="12" height="10" fill="#4B67B4" opacity="0.35"/>
+<rect x="36" y="364" width="264" height="100" rx="18" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4" filter="url(#soft)"/>
+<text x="50" y="386" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">paragraph reader</text>
+<text x="50" y="406" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="12" font-weight="700">ingestDocx</text>
+<text x="50" y="426" fill="#4d5261" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11">composition · copies · sentences</text>
+<text x="50" y="444" fill="#4d5261" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11">≥3 consecutive entries</text>
+<rect x="252" y="382" width="34" height="4" rx="2" fill="#4B67B4" opacity="0.55"/>
+<rect x="252" y="396" width="30" height="4" rx="2" fill="#4B67B4" opacity="0.45"/>
+<rect x="252" y="410" width="34" height="4" rx="2" fill="#4B67B4" opacity="0.35"/>
+<rect x="252" y="424" width="24" height="4" rx="2" fill="#4B67B4" opacity="0.25"/>
+<text x="38" y="492" fill="#8f94a4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11">main file only · amendments not merged</text>
+<text x="38" y="510" fill="#8f94a4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11">no network · no model call · no second copy</text>
+<text x="330" y="136" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="12" font-weight="700">STRUCTURE · nine items</text>
+<text x="730" y="136" fill="#8f94a4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" text-anchor="end">6 / 9 retrieved</text>
+<rect x="330" y="150" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="343" cy="169" r="4.2" fill="#15803d"/>
+<text x="355" y="174" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">Deadline</text>
+<rect x="468" y="150" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="481" cy="169" r="4.2" fill="#15803d"/>
+<text x="493" y="174" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">Opening</text>
+<rect x="606" y="150" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="619" cy="169" r="4.2" fill="#15803d"/>
+<text x="631" y="174" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">Deposit</text>
+<rect x="330" y="196" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="343" cy="215" r="4.2" fill="#15803d"/>
+<text x="355" y="220" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">Validity</text>
+<rect x="468" y="196" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="481" cy="215" r="4.2" fill="#15803d"/>
+<text x="493" y="220" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">Ceiling</text>
+<rect x="606" y="196" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="619" cy="215" r="3.8" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<text x="631" y="220" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13">Copies</text>
+<rect x="330" y="242" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="343" cy="261" r="4.2" fill="#15803d"/>
+<text x="355" y="266" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">Sealing</text>
+<rect x="468" y="242" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="481" cy="261" r="3.8" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<text x="493" y="266" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13">Site visit</text>
+<rect x="606" y="242" width="124" height="38" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<circle cx="619" cy="261" r="3.8" fill="none" stroke="#b45309" stroke-width="1.6"/>
+<text x="631" y="266" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13">Clarify</text>
+<text x="330" y="298" fill="#8f94a4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11">frontRowsOf 6 keys · compositionOf 6 entries · readCopies 1/4</text>
+<text x="330" y="326" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="12" font-weight="700">WORDING · six families → evidence gates</text>
+<rect x="330" y="338" width="88" height="40" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<text x="374" y="353" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">refuse</text>
+<text x="374" y="370" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" text-anchor="middle">拒收</text>
+<rect x="426" y="338" width="88" height="40" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<text x="470" y="353" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">invalid</text>
+<text x="470" y="370" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" text-anchor="middle">无效投标</text>
+<rect x="330" y="384" width="88" height="40" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<text x="374" y="399" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">reject</text>
+<text x="374" y="416" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" text-anchor="middle">否决·废标</text>
+<rect x="426" y="384" width="88" height="40" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<text x="470" y="399" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">disqualify</text>
+<text x="470" y="416" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" text-anchor="middle">取消资格</text>
+<rect x="330" y="430" width="88" height="40" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<text x="374" y="445" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">deviation</text>
+<text x="374" y="462" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" text-anchor="middle">重大偏差</text>
+<rect x="426" y="430" width="88" height="40" rx="12" fill="#ffffff" stroke="#e7e4f0" stroke-width="1.1"/>
+<text x="470" y="445" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">postAward</text>
+<text x="470" y="462" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" text-anchor="middle">取消中标</text>
+<path d="M514 358 L532 358" fill="none" stroke="#4B67B4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<rect x="536" y="338" width="194" height="64" rx="14" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4" filter="url(#soft)"/>
+<text x="550" y="358" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">① verbatim + no hedge?</text>
+<text x="550" y="378" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="700">no → C</text>
+<text x="606" y="378" fill="#4B67B4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="700">yes ↓</text>
+<text x="550" y="394" fill="#8f94a4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11">quoteVerified · HEDGES</text>
+<rect x="536" y="414" width="194" height="64" rx="14" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4" filter="url(#soft)"/>
+<text x="550" y="434" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="13" font-weight="700">② binding section?</text>
+<text x="550" y="454" fill="#4B67B4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="700">yes → A · no → B</text>
+<text x="550" y="470" fill="#8f94a4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11">投标人须知/评标办法/废标</text>
+<path d="M633 402 L633 412" fill="none" stroke="#4B67B4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<path d="M730 370 L740 370 L740 210 L756 210" fill="none" stroke="#b45309" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrwarn)"/>
+<path d="M730 434 L746 434 L746 350 L756 350" fill="none" stroke="#4B67B4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<path d="M730 462 L756 462" fill="none" stroke="#8f94a4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrfaint)"/>
+<path d="M730 280 L736 288 L790 288 L790 294" fill="none" stroke="#4B67B4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<text x="1064" y="140" fill="#8f94a4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" text-anchor="end">report order C → A → B</text>
+<rect x="760" y="150" width="304" height="130" rx="18" fill="#ffffff" stroke="#b45309" stroke-width="2" filter="url(#soft)"/>
+<text x="776" y="176" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="15" font-weight="700">C 必须处理</text>
+<text x="1048" y="178" fill="#b45309" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="26" font-weight="700" text-anchor="end">1</text>
+<rect x="776" y="188" width="272" height="36" rx="10" fill="#fdf3e9"/>
+<text x="788" y="210" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="12">原则上，投标有效期不足的按无效投标处理。</text>
+<text x="776" y="244" fill="#4d5261" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11.5">hedged by 原则上 → not absolute</text>
+<rect x="776" y="254" width="272" height="22" rx="11" fill="#fdf3e9"/>
+<text x="788" y="269" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="12" font-weight="700">C ≠ 0 → deliverable: false</text>
+<rect x="760" y="296" width="304" height="102" rx="18" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4" filter="url(#soft)"/>
+<text x="776" y="320" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="15" font-weight="700">A 交付</text>
+<text x="1048" y="322" fill="#4B67B4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="26" font-weight="700" text-anchor="end">8</text>
+<text x="776" y="342" fill="#4d5261" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11.5">6 front-appendix keys · verbatim</text>
+<text x="776" y="362" fill="#4d5261" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11.5">2 clauses · verbatim + binding + no hedge</text>
+<text x="776" y="382" fill="#8f94a4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11">TRQ-HDR-006…011 · TRQ-REJ-002/003</text>
+<rect x="760" y="412" width="304" height="100" rx="18" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4" filter="url(#soft)"/>
+<text x="776" y="436" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="15" font-weight="700">B 待确认</text>
+<text x="1048" y="438" fill="#8f94a4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="26" font-weight="700" text-anchor="end">2</text>
+<text x="776" y="460" fill="#4d5261" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11.5">verbatim, but no section anchor</text>
+<text x="776" y="482" fill="#8f94a4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11">TRQ-REJ-001 · TRQ-REJ-004</text>
+<text x="776" y="530" fill="#8f94a4" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11">out · markdown · resultJson · requirementsPack</text>
+<rect x="36" y="548" width="1028" height="88" rx="18" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4" filter="url(#soft)"/>
+<text x="52" y="570" fill="#141419" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="12" font-weight="700">COVERAGE · COV-01…10</text>
+<text x="52" y="590" fill="#15803d" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="700">6 hit · 4 miss</text>
+<text x="52" y="608" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="700">miss ≠ absent</text>
+<rect x="240" y="558" width="74" height="40" rx="10" fill="#eaf6ee" stroke="#15803d" stroke-width="1.1"/>
+<text x="277" y="574" fill="#15803d" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-01</text>
+<text x="277" y="590" fill="#15803d" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">hit</text>
+<rect x="322" y="558" width="74" height="40" rx="10" fill="#eaf6ee" stroke="#15803d" stroke-width="1.1"/>
+<text x="359" y="574" fill="#15803d" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-02</text>
+<text x="359" y="590" fill="#15803d" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">hit</text>
+<rect x="404" y="558" width="74" height="40" rx="10" fill="#eaf6ee" stroke="#15803d" stroke-width="1.1"/>
+<text x="441" y="574" fill="#15803d" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-03</text>
+<text x="441" y="590" fill="#15803d" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">hit</text>
+<rect x="486" y="558" width="74" height="40" rx="10" fill="#fdf3e9" stroke="#b45309" stroke-width="1.1"/>
+<text x="523" y="574" fill="#b45309" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-04</text>
+<text x="523" y="590" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">miss</text>
+<rect x="568" y="558" width="74" height="40" rx="10" fill="#eaf6ee" stroke="#15803d" stroke-width="1.1"/>
+<text x="605" y="574" fill="#15803d" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-05</text>
+<text x="605" y="590" fill="#15803d" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">hit</text>
+<rect x="650" y="558" width="74" height="40" rx="10" fill="#eaf6ee" stroke="#15803d" stroke-width="1.1"/>
+<text x="687" y="574" fill="#15803d" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-06</text>
+<text x="687" y="590" fill="#15803d" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">hit</text>
+<rect x="732" y="558" width="74" height="40" rx="10" fill="#fdf3e9" stroke="#b45309" stroke-width="1.1"/>
+<text x="769" y="574" fill="#b45309" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-07</text>
+<text x="769" y="590" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">miss</text>
+<rect x="814" y="558" width="74" height="40" rx="10" fill="#fdf3e9" stroke="#b45309" stroke-width="1.1"/>
+<text x="851" y="574" fill="#b45309" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-08</text>
+<text x="851" y="590" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">miss</text>
+<rect x="896" y="558" width="74" height="40" rx="10" fill="#eaf6ee" stroke="#15803d" stroke-width="1.1"/>
+<text x="933" y="574" fill="#15803d" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-09</text>
+<text x="933" y="590" fill="#15803d" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">hit</text>
+<rect x="978" y="558" width="74" height="40" rx="10" fill="#fdf3e9" stroke="#b45309" stroke-width="1.1"/>
+<text x="1015" y="574" fill="#b45309" font-family="Consolas,'Microsoft YaHei',ui-monospace,monospace" font-size="11" font-weight="700" text-anchor="middle">COV-10</text>
+<text x="1015" y="590" fill="#b45309" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="600" text-anchor="middle">miss</text>
+<text x="240" y="620" fill="#8f94a4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11">COV-04 / 07 / 08 / 10 not retrieved — retrieval, not legal completeness</text>
+<text x="1064" y="620" fill="#8f94a4" font-family="'Microsoft YaHei','Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif" font-size="11" font-weight="700" text-anchor="end">no verdict</text>
+</svg>

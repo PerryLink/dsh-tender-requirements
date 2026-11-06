@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-flow-dark.svg">
-  <img src="docs/assets/dsh-tender-requirements-flow-light.svg" width="100%" alt="Flujo de datos de dsh-tender-requirements: tender.docx → ingestToTable (anexo inicial de dos columnas) → nueve elementos y recuento de copias + lista compositionOf → colas A/B/C del RequirementsPack; debajo, la red de cobertura COV-01…COV-10">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-hero-en-dark.webp">
+  <img src="docs/assets/dsh-tender-requirements-hero-en-light.webp" width="100%" alt="Pancarta de dsh-tender-requirements: a la izquierda el nombre y dos líneas de valor; a la derecha el anexo inicial de dos columnas del ejemplo sintético (plazo, garantía, validez, techo, sellado, copias) y las colas A 8 / B 2 / C 1, donde una cláusula con «原则上» mantiene deliverable=false.">
 </picture>
 
 # dsh-tender-requirements
@@ -35,6 +35,11 @@ dsh plugin --profile <name> add dsh-tender-requirements
 ## Qué es
 
 `dsh-tender-requirements` es un extractor local de solo lectura, no un revisor. Abre el `.docx` que le das, empareja las filas de un anexo inicial de dos columnas, busca después la lista de composición de la oferta y el número de copias en el cuerpo, y por último emite un informe con procedencia, confianza y motivo para cada elemento. Los elementos no encontrados también se imprimen, y dicen «no recuperado» en lugar de «el pliego no lo dice». Sin llamadas al modelo, sin red y sin una segunda copia de los datos.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-tender-requirements-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-tender-requirements-flow-v5-light.svg" width="100%" alt="Estructura de dsh-tender-requirements: a la izquierda un .docx leído por tablas y párrafos; arriba al centro la rejilla de nueve elementos (6 recuperados / 3 no recuperados), la lista de composición de 6 entradas y las copias 1 original / 4 copias; abajo al centro seis familias de redacción por dos puertas de evidencia (literal y sin matices, luego sección vinculante), con las claves del anexo inicial en una derivación discontinua hacia A; a la derecha el orden del informe C → A → B: C requiere gestión 1 (con «原则上»), A entregado 8, B por confirmar 2, y C no vacío deja deliverable=false; la red COV-01…COV-10 marca 6 aciertos y 4 fallos.">
+</picture>
 
 ## Instalación en tres pasos
 
@@ -305,7 +310,7 @@ Estructura de directorios:
 | `tests/` | Suites vitest y el fixture `.docx` |
 | `scripts/` | Puertas mecánicas y generador de imágenes |
 
-Las imágenes las genera programáticamente [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) en `docs/assets/dsh-tender-requirements-flow-{light,dark}.svg`; vuelve a ejecutarlo con `python scripts/gen-readme-assets.py`.
+Las imágenes las genera programáticamente [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py): Python + Pillow para los hero WebP claro/oscuro y SVG estructurales escritos a mano (los nombres empiezan por `dsh-tender-requirements-`). Vuelve a ejecutarlo con `python scripts/gen-readme-assets.py`.
 
 Sincronía de código compartido: `src/shared/` se copia del kit compartido de la familia; dentro del espacio de trabajo familiar puede refrescarse con `node ../scripts/sync-shared.mjs dsh-tender-requirements` (ese script no existe en un clon independiente).
 

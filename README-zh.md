@@ -1,6 +1,6 @@
 # dsh-tender-requirements — 招标文件要点抽取
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check
@@ -9,7 +9,7 @@ node samples/quickstart/run.mjs --check
 样例在 `samples/quickstart/input/`，期望输出在 `samples/quickstart/expected/result.json`；截图见 `docs/assets/quickstart.png`。
 
 
-[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+[English](README.md) · [简体中文](README-zh.md)
 
 <!-- topblock:v1 -->
 > **这是什么**　从一份招标文件里抽出时间、保证金、投标文件组成与份数，逐项告诉你有没有检索到。

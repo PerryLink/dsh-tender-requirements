@@ -1,6 +1,6 @@
 # dsh-tender-requirements — Tender requirements
 
-[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+[English](README.md) · [简体中文](README-zh.md)
 
 <!-- topblock:v1 -->
 > **What it is** — Extracts dates, bid security, document composition and copy counts from a tender document, and says whether each was found.

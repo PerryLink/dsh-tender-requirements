@@ -106,6 +106,10 @@ Rejection clauses do not rely on one keyword table: the spec's controlled compar
 
 ### Examples
 
+![dsh-tender-requirements: real terminal run](docs/assets/dsh-tender-requirements-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
 The output below comes from the synthetic sample in this repository; run `pnpm run build`, then `node samples/quickstart/run.mjs`.
 
 ```text

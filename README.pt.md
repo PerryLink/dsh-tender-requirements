@@ -41,6 +41,11 @@ dsh plugin --profile <name> add dsh-tender-requirements
   <img src="docs/assets/dsh-tender-requirements-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-tender-requirements: à esquerda um .docx lido por tabelas e parágrafos; acima ao centro a grelha de nove itens (6 recuperados / 3 não recuperados), a lista de composição de 6 entradas e as cópias 1 original / 4 cópias; abaixo ao centro seis famílias de redação por dois portões de evidência (literal e sem matizes, depois secção vinculativa), com as chaves do anexo inicial numa derivação tracejada para A; à direita a ordem do relatório C → A → B: C requer tratamento 1 (com «原则上»), A entregue 8, B por confirmar 2, e C não vazio deixa deliverable=false; a rede COV-01…COV-10 marca 6 acertos e 4 falhas.">
 </picture>
 
+![dsh-tender-requirements: execução real de terminal](docs/assets/dsh-tender-requirements-demo.gif)
+
+*Repetição animada de uma execução real registrada neste repositório.*
+
+
 ## Instalação em três passos
 
 1. **Instale** (canal npm; git e tarball também funcionam):

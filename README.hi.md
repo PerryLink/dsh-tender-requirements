@@ -41,6 +41,11 @@ dsh plugin --profile <name> add dsh-tender-requirements
   <img src="docs/assets/dsh-tender-requirements-flow-v5-light.svg" width="100%" alt="dsh-tender-requirements संरचना: बाईं ओर .docx को तालिकाओं और पैराग्राफ़ से पढ़ा जाता है; ऊपर-मध्य में नौ-मद ग्रिड (6 प्राप्त / 3 नहीं मिले), छह-प्रविष्टि संयोजन सूची और प्रतियाँ 1 मूल / 4 प्रतियाँ; नीचे-मध्य में छह शब्दावली परिवार दो साक्ष्य-द्वारों से (शब्दशः और बिना हेज, फिर बाध्यकारी अनुभाग), अग्र-परिशिष्ट कुंजियाँ बिंदुकित बाईपास से A में; दाईं ओर रिपोर्ट क्रम C → A → B: C में 1 (原则上 सहित), A में 8, B में 2, और C खाली न होने से deliverable=false; नीचे COV-01…COV-10 कवरेज नेट, 6 हिट और 4 मिस।">
 </picture>
 
+![dsh-tender-requirements का असली टर्मिनल रन](docs/assets/dsh-tender-requirements-demo.gif)
+
+*इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
+
+
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल करें** (npm चैनल; git और tarball भी चलते हैं):

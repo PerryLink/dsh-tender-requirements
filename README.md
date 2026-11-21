@@ -34,6 +34,10 @@ dsh plugin --profile <name> add dsh-tender-requirements
 
 ## 它是什么
 
+![dsh-tender-requirements 真实终端运行](docs/assets/dsh-tender-requirements-demo.gif)
+
+*本仓库一次真实运行的动图回放。*
+
 `dsh-tender-requirements` 是一个只读的本地抽取器，不是审阅器。它打开你给的 `.docx`，把前附表中的两列表格逐行配对，再从正文里找投标文件组成清单与份数，最后输出一份带出处、置信度和理由的报告。找不到的项也会打印，并明确写「未检索到」而不是「文件里没有」。整个过程不调用模型、不联网、不写第二份数据。
 
 <picture>

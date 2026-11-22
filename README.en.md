@@ -7,6 +7,8 @@
 
 # dsh-tender-requirements
 
+Current version `0.2.7`.
+
 **Turn one tender document into a reviewable checklist — every item says what was retrieved and what is still missing.**
 
 A local extractor for bid managers and tender agents: read the front appendix and body of a `.docx`, report the deadline, deposit, validity, ceiling, bid composition and copy counts, then pack them into the delivered / needs-confirmation / must-handle queues.

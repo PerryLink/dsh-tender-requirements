@@ -11,6 +11,8 @@
 
 A local extractor for bid managers and tender agents: read the front appendix and body of a `.docx`, report the deadline, deposit, validity, ceiling, bid composition and copy counts, then pack them into the delivered / needs-confirmation / must-handle queues.
 
+Last verified on DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Install](#three-step-setup) · [Configuration](#configuration) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -46,12 +48,12 @@ dsh plugin --profile <name> add dsh-tender-requirements
 1. **Install** (npm channel; git and tarball also work):
 
    ```sh
-   # npm channel (0.2.4 is published)
+   # npm channel (0.2.6 is published)
    dsh plugin --profile web add dsh-tender-requirements
    # git channel (latest main)
    dsh plugin --profile web add github:PerryLink/dsh-tender-requirements
    # tarball channel: pnpm pack in this repo, then
-   dsh plugin --profile web add ./dsh-tender-requirements-0.2.4.tgz
+   dsh plugin --profile web add ./dsh-tender-requirements-0.2.6.tgz
    ```
 
    The profile inserts a `dsh-tender-requirements` row through `cordis.patch.yml`; the tool is named `tender_requirements`.
@@ -278,7 +280,7 @@ Static evidence: `pnpm run verify:self-contained` and `pnpm run check:lockfile` 
 
 ## Ecosystem & quality
 
-- [npm package](https://www.npmjs.com/package/dsh-tender-requirements) (0.2.4)
+- [npm package](https://www.npmjs.com/package/dsh-tender-requirements) (0.2.6)
 - [dshfind plugin page](https://dshfind.com/plugins/PerryLink/dsh-tender-requirements) (installs and ranking)
 - [OpenSSF Scorecard report](https://securityscorecards.dev/viewer/?uri=github.com/PerryLink/dsh-tender-requirements) (driven by [.github/workflows/scorecard.yml](.github/workflows/scorecard.yml))
 - **Quality gates**: `typecheck` · `vitest` (extraction, queues, boundary semantics and version sync) · `verify:self-contained` · `check:lockfile` · `check:readmes` · `check:citations`, all in CI

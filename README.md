@@ -11,6 +11,8 @@
 
 面向投标专员与招标代理的本地抽取插件：读 `.docx` 的前附表与正文，给出时间、保证金、有效期、最高限价、投标文件组成和正副本份数，再按「可交付 / 待确认 / 必须处理」三队列装进 RequirementsPack。
 
+最近一次核验：DeepSeek Harness `dsh-v0.2.3-alpha.1`（2026-11-22）。
+
 [安装](#三步上手) · [配置](#配置) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -50,12 +52,12 @@ dsh plugin --profile <name> add dsh-tender-requirements
 1. **安装**（npm 通道；也可从 git 或 tarball 装）：
 
    ```sh
-   # npm 通道（已发布 0.2.4）
+   # npm 通道（已发布 0.2.6）
    dsh plugin --profile web add dsh-tender-requirements
    # git 通道（最新 main）
    dsh plugin --profile web add github:PerryLink/dsh-tender-requirements
    # tarball 通道：本仓库 pnpm pack 后
-   dsh plugin --profile web add ./dsh-tender-requirements-0.2.4.tgz
+   dsh plugin --profile web add ./dsh-tender-requirements-0.2.6.tgz
    ```
 
    安装后 profile 会通过 `cordis.patch.yml` 插入一行 `dsh-tender-requirements`，工具名是 `tender_requirements`。
@@ -286,7 +288,7 @@ C 里是工具抽不出来或表述非绝对的条款；只要 C 非空，`deliv
 
 ## 生态与质量
 
-- [npm 包页](https://www.npmjs.com/package/dsh-tender-requirements)（0.2.4）
+- [npm 包页](https://www.npmjs.com/package/dsh-tender-requirements)（0.2.6）
 - [dshfind 插件页](https://dshfind.com/plugins/PerryLink/dsh-tender-requirements)（安装量与排名）
 - [OpenSSF Scorecard 报告](https://securityscorecards.dev/viewer/?uri=github.com/PerryLink/dsh-tender-requirements)（由 [.github/workflows/scorecard.yml](.github/workflows/scorecard.yml) 驱动）
 - **质量门禁**：`typecheck` · `vitest`（覆盖抽取、三队列、边界语义与版本同步）· `verify:self-contained` · `check:lockfile` · `check:readmes` · `check:citations`，全部在 CI 中执行

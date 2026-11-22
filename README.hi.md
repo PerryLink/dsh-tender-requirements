@@ -11,6 +11,8 @@
 
 निविदा प्रबंधकों और एजेंटों के लिए स्थानीय एक्सट्रैक्टर: `.docx` का अग्र-परिशिष्ट और मुख्य भाग पढ़कर समय-सीमा, जमानत, वैधता, उच्चतम सीमा, निविदा संरचना और मूल/प्रतियों की संख्या बताता है, फिर सबको तीन कतारों — सौंपी गई / पुष्टि बाकी / अनिवार्य रूप से निपटाना है — में रखता है।
 
+अंतिम सत्यापन: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [इंस्टॉल](#तीन-चरणों-में-शुरुआत) · [कॉन्फ़िगरेशन](#कॉन्फ़िगरेशन) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -45,18 +47,17 @@ dsh plugin --profile <name> add dsh-tender-requirements
 
 *इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
 
-
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल करें** (npm चैनल; git और tarball भी चलते हैं):
 
    ```sh
-   # npm चैनल (0.2.4 प्रकाशित)
+   # npm चैनल (0.2.6 प्रकाशित)
    dsh plugin --profile web add dsh-tender-requirements
    # git चैनल (नवीनतम main)
    dsh plugin --profile web add github:PerryLink/dsh-tender-requirements
    # tarball चैनल: इस रेपो में pnpm pack के बाद
-   dsh plugin --profile web add ./dsh-tender-requirements-0.2.4.tgz
+   dsh plugin --profile web add ./dsh-tender-requirements-0.2.6.tgz
    ```
 
    प्रोफ़ाइल `cordis.patch.yml` के ज़रिए `dsh-tender-requirements` पंक्ति जोड़ती है; टूल का नाम `tender_requirements` है।
@@ -279,7 +280,7 @@ C में वे खंड हैं जो टूल निकाल नह�
 
 ## इकोसिस्टम और गुणवत्ता
 
-- [npm पैकेज](https://www.npmjs.com/package/dsh-tender-requirements) (0.2.4)
+- [npm पैकेज](https://www.npmjs.com/package/dsh-tender-requirements) (0.2.6)
 - [dshfind प्लगइन पृष्ठ](https://dshfind.com/plugins/PerryLink/dsh-tender-requirements) (इंस्टॉल और रैंकिंग)
 - [OpenSSF Scorecard रिपोर्ट](https://securityscorecards.dev/viewer/?uri=github.com/PerryLink/dsh-tender-requirements) ([.github/workflows/scorecard.yml](.github/workflows/scorecard.yml) से संचालित)
 - **गुणवत्ता गेट**: `typecheck` · `vitest` (निष्कर्षण, कतारें, सीमा-अर्थ और संस्करण तालमेल) · `verify:self-contained` · `check:lockfile` · `check:readmes` · `check:citations`, सभी CI में

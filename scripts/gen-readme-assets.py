@@ -276,7 +276,7 @@ def hero(lang: str, skin: str) -> None:
 
     # ---- left column --------------------------------------------------------
     pill(img, (m, 54), h["kicker"], s, size=16)
-    version = "v0.2.4"
+    version = "v0.2.6"
     vw = measure(version, 12, "mono_bold") + 26
     pill(img, (m + col_w - int(vw), 56), version, s, size=12,
          kind="mono_bold", pad=13)
@@ -555,7 +555,7 @@ def flow(skin: str) -> None:
                           "A tier is evidence strength, not priority — a "
                           "non-empty C sets deliverable = false.", 12,
                           s["sub"], "sans", 400, max_w=900))
-    parts.append(svg_text(1062, 40, "v0.2.4 · tender_requirements", 11,
+    parts.append(svg_text(1062, 40, "v0.2.6 · tender_requirements", 11,
                           s["faint"], "mono", 400, anchor="end",
                           max_w=260))
     parts.append(f'<line x1="36" y1="112" x2="1064" y2="112" '

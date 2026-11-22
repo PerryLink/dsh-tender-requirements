@@ -11,6 +11,8 @@
 
 Un extractor local para responsables de ofertas y agentes de licitación: lee el anexo inicial y el cuerpo de un `.docx`, informa de plazo, garantía, validez, techo, composición de la oferta y número de originales y copias, y lo empaqueta en las colas de entregado / por confirmar / a resolver.
 
+Última verificación: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Instalar](#instalación-en-tres-pasos) · [Configuración](#configuración) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -45,18 +47,17 @@ dsh plugin --profile <name> add dsh-tender-requirements
 
 *Repetición animada de una ejecución real registrada en este repositorio.*
 
-
 ## Instalación en tres pasos
 
 1. **Instala** (canal npm; también valen git y tarball):
 
    ```sh
-   # canal npm (0.2.4 publicada)
+   # canal npm (0.2.6 publicada)
    dsh plugin --profile web add dsh-tender-requirements
    # canal git (última main)
    dsh plugin --profile web add github:PerryLink/dsh-tender-requirements
    # canal tarball: tras pnpm pack en este repo
-   dsh plugin --profile web add ./dsh-tender-requirements-0.2.4.tgz
+   dsh plugin --profile web add ./dsh-tender-requirements-0.2.6.tgz
    ```
 
    El perfil inserta una fila `dsh-tender-requirements` mediante `cordis.patch.yml`; la herramienta se llama `tender_requirements`.
@@ -279,7 +280,7 @@ Evidencia estática: `pnpm run verify:self-contained` y `pnpm run check:lockfile
 
 ## Ecosistema y calidad
 
-- [Paquete npm](https://www.npmjs.com/package/dsh-tender-requirements) (0.2.4)
+- [Paquete npm](https://www.npmjs.com/package/dsh-tender-requirements) (0.2.6)
 - [Página de dshfind](https://dshfind.com/plugins/PerryLink/dsh-tender-requirements) (instalaciones y ranking)
 - [Informe OpenSSF Scorecard](https://securityscorecards.dev/viewer/?uri=github.com/PerryLink/dsh-tender-requirements) (impulsado por [.github/workflows/scorecard.yml](.github/workflows/scorecard.yml))
 - **Puertas de calidad**: `typecheck` · `vitest` (extracción, colas, semántica de límites y sincronía de versión) · `verify:self-contained` · `check:lockfile` · `check:readmes` · `check:citations`, todas en CI
